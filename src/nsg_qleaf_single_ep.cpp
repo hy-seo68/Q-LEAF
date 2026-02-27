@@ -1,11 +1,11 @@
 /**
- * @file nsg_qepo_single_ep.cpp
- * @brief NSG QEPO Single Entry Point Benchmark (Global Pool + Mapping Architecture)
+ * @file nsg_qleaf_single_ep.cpp
+ * @brief NSG Q-LEAF Single Entry Point Benchmark (Global Pool + Mapping Architecture)
  *
  */
 
-#include "nsg_qepo_utils.h"
-#include "nsg_qepo_data_loader.h"
+#include "nsg_qleaf_utils.h"
+#include "nsg_qleaf_data_loader.h"
 #include "aligned_allocator.h"
 #include <iostream>
 #include <fstream>
@@ -99,7 +99,7 @@ void save_all_results_json(
     out << "{\n";
     out << "  \"timestamp\": \"" << time_t_now << "\",\n";
     out << "  \"datetime\": \"" << std::put_time(&tm_now, "%Y-%m-%d %H:%M:%S") << "\",\n";
-    out << "  \"framework\": \"QEPO_NSG\",\n";
+    out << "  \"framework\": \"Q-LEAF_NSG\",\n";
     out << "  \"variant\": \"single_ep\",\n";
     out << "  \"parameters\": {\n";
     out << "    \"k\": " << k << ",\n";
@@ -162,7 +162,7 @@ void save_all_results_json(
 int main(int argc, char** argv) {
     if (argc < 8) {
         std::cerr << "========================================" << std::endl;
-        std::cerr << "NSG QEPO Single Entry Point Benchmark" << std::endl;
+        std::cerr << "NSG Q-LEAF Single Entry Point Benchmark" << std::endl;
         std::cerr << "Architecture: Global Pool + Mapping" << std::endl;
         std::cerr << "========================================" << std::endl;
         std::cerr << "Usage: " << argv[0]
@@ -208,7 +208,7 @@ int main(int argc, char** argv) {
         }
 
         std::cout << "\n========================================" << std::endl;
-        std::cout << "NSG QEPO Single Entry Point Benchmark" << std::endl;
+        std::cout << "NSG Q-LEAF Single Entry Point Benchmark" << std::endl;
         std::cout << "Architecture: Global Pool + Mapping" << std::endl;
         std::cout << "========================================" << std::endl;
         std::cout << "Base file: " << base_fvecs_file << std::endl;
@@ -598,7 +598,7 @@ int main(int argc, char** argv) {
         auto tm_now = *std::localtime(&time_t_now);
         timestamp_stream << std::put_time(&tm_now, "%Y%m%d_%H%M%S");
 
-        std::string output_file = "nsg_qepo_single_ep_k" + std::to_string(k) +
+        std::string output_file = "nsg_qleaf_single_ep_k" + std::to_string(k) +
                                  "_multi_L_" + timestamp_stream.str() + ".json";
 
         save_all_results_json(output_file, k, all_results);

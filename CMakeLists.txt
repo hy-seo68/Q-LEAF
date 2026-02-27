@@ -94,7 +94,7 @@ set(BENCH_DIR ${CMAKE_CURRENT_SOURCE_DIR}/benchmarks)
 
 # Common utility library
 add_library(qleaf_utils STATIC
-    ${SRC_DIR}/nsg_qepo_utils.cpp
+    ${SRC_DIR}/nsg_qleaf_utils.cpp
 )
 target_link_libraries(qleaf_utils
     ${FAISS_LIB_DIR}/libfaiss.a
@@ -103,7 +103,7 @@ target_link_libraries(qleaf_utils
 
 # Data loader library
 add_library(qleaf_data_loader STATIC
-    ${SRC_DIR}/nsg_qepo_data_loader.cpp
+    ${SRC_DIR}/nsg_qleaf_data_loader.cpp
 )
 target_link_libraries(qleaf_data_loader
     qleaf_utils
@@ -137,11 +137,11 @@ target_link_libraries(compute_ep_nsg
     ${BLAS_LIBRARIES}
 )
 
-# Q-LEAF Single EP Benchmark (Case C: QEPO Full)
-add_executable(nsg_qepo_single_ep
-    ${SRC_DIR}/nsg_qepo_single_ep.cpp
+# Q-LEAF Single EP Benchmark (Case C: Q-LEAF Full)
+add_executable(nsg_qleaf_single_ep
+    ${SRC_DIR}/nsg_qleaf_single_ep.cpp
 )
-target_link_libraries(nsg_qepo_single_ep
+target_link_libraries(nsg_qleaf_single_ep
     qleaf_utils
     qleaf_data_loader
     ${EFANNA2E_LIB_DIR}/libefanna2e.a
@@ -175,7 +175,7 @@ target_link_libraries(nsg_baseline_full_graph
 install(TARGETS
     build_nsg_subgraphs
     compute_ep_nsg
-    nsg_qepo_single_ep
+    nsg_qleaf_single_ep
     nsg_baseline_subgraph_benchmark
     nsg_baseline_full_graph
     RUNTIME DESTINATION bin
@@ -199,7 +199,7 @@ message(STATUS "")
 message(STATUS "Executables:")
 message(STATUS "  - build_nsg_subgraphs             (Preprocessing: Build subgraphs)")
 message(STATUS "  - compute_ep_nsg                  (Preprocessing: Compute entry points)")
-message(STATUS "  - nsg_qepo_single_ep              (Benchmark: Case C - Q-LEAF Full)")
+message(STATUS "  - nsg_qleaf_single_ep             (Benchmark: Case C - Q-LEAF Full)")
 message(STATUS "  - nsg_baseline_subgraph_benchmark (Benchmark: Case B - Subgraph only)")
 message(STATUS "  - nsg_baseline_full_graph         (Benchmark: Case A - Full graph)")
 message(STATUS "")

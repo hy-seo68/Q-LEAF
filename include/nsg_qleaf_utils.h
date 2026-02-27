@@ -1,5 +1,5 @@
-#ifndef NSG_QEPO_UTILS_H
-#define NSG_QEPO_UTILS_H
+#ifndef NSG_QLEAF_UTILS_H
+#define NSG_QLEAF_UTILS_H
 
 #include <vector>
 #include <string>
@@ -69,4 +69,4 @@ float calculate_recall_flat(
     const std::vector<uint32_t>& ground_truth,
     size_t gt_dim, int k);
 
-#endif // NSG_QEPO_UTILS_H
+#endif // NSG_QLEAF_UTILS_H

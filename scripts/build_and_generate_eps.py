@@ -538,7 +538,7 @@ def main():
                             default=Path("./build_nsg_subgraphs"),
                             help="Path to build_nsg_subgraphs executable")
     exec_group.add_argument("--ep-generator", type=Path,
-                            default=Path("./nsg_qepo/compute_ep_nsg"),
+                            default=Path("./build/bin/compute_ep_nsg"),
                             help="Path to compute_ep_nsg executable (batch mode)")
 
     args = parser.parse_args()
@@ -676,7 +676,7 @@ def main():
     logger.log(f"Log file: {log_file}")
     logger.log("\n✓ All tasks completed successfully!")
     logger.log("\nNext step:")
-    logger.log(f"  Run nsg_qepo_single_ep with: --config {config.graph_output_dir / f'config_ep{config.num_hubs}.csv'}")
+    logger.log(f"  Run nsg_qleaf_single_ep with: --config {config.graph_output_dir / f'config_ep{config.num_hubs}.csv'}")
 
 
 if __name__ == "__main__":

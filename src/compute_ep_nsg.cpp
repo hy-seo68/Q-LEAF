@@ -23,7 +23,7 @@
 #include <faiss/IndexFlat.h>
 #include <efanna2e/index_nsg.h>
 #include <efanna2e/util.h>
-#include "nsg_qepo_data_loader.h"
+#include "nsg_qleaf_data_loader.h"
 
 /**
  * @brief Read VmHWM (Peak RSS) from /proc/self/status

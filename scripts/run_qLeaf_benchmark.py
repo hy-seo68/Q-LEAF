@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-NSG QEPO Single Entry Point Benchmark Execution Script
+NSG Q-LEAF Single Entry Point Benchmark Execution Script
 """
 
 import argparse
@@ -56,7 +56,7 @@ def print_success(message: str):
     print(f"{Colors.GREEN}✔{Colors.NC} {message}")
 
 
-class NSGQEPOBenchmark:
+class NSGQLEAFBenchmark:
     SEPARATOR_LINE = "=" * 50
 
     def __init__(self, dataset: str, num_labels: int, graph_config: str, k: int, search_l_values: List[int],
@@ -70,7 +70,7 @@ class NSGQEPOBenchmark:
         self.num_eps = num_eps
 
         self.base_dir = get_base_dir()
-        self.benchmark_executable = self.base_dir / "build/bin/nsg_qepo_single_ep"
+        self.benchmark_executable = self.base_dir / "build/bin/nsg_qleaf_single_ep"
 
         self.dataset_config_path = get_dataset_config_path()
         self.nsg_subgraphs_base_dir = self.base_dir / "NSG_subgraph_output"
@@ -323,7 +323,7 @@ class NSGQEPOBenchmark:
 
         with open(log_file, 'w') as f:
             f.write(self.SEPARATOR_LINE + "\n")
-            f.write("NSG QEPO Single Entry Point Benchmark\n")
+            f.write("NSG Q-LEAF Single Entry Point Benchmark\n")
             f.write("Architecture: Global Pool + Mapping\n")
             f.write(self.SEPARATOR_LINE + "\n")
             f.write(f"Execution start: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n")
@@ -355,7 +355,7 @@ class NSGQEPOBenchmark:
                 f.write(f"Search parameters: k={self.k}, search_L={search_l}\n")
                 f.write(self.SEPARATOR_LINE + "\n\n")
 
-            # Usage: nsg_qepo_single_ep <base_fvecs_file> <config_file> <query_vec_file> <query_label_file> <k> <search_L_values> <ground_truth_file>
+            # Usage: nsg_qleaf_single_ep <base_fvecs_file> <config_file> <query_vec_file> <query_label_file> <k> <search_L_values> <ground_truth_file>
             cmd = [
                 str(self.benchmark_executable),
                 str(self.base_fvecs_file),      
@@ -385,7 +385,7 @@ class NSGQEPOBenchmark:
                 print_success(f"search_L={search_l} benchmark completed")
                 success_count += 1
 
-                json_files = sorted(self.results_dir.glob(f"nsg_qepo_single_ep_*.json"))
+                json_files = sorted(self.results_dir.glob(f"nsg_qleaf_single_ep_*.json"))
                 if json_files:
                     latest_json = json_files[-1] 
                     parsed = self._parse_json_result(latest_json)
@@ -473,7 +473,7 @@ class NSGQEPOBenchmark:
         print_info(f"Results directory: {Colors.CYAN}{self.results_dir}{Colors.NC}")
         print("")
 
-        json_files = sorted(self.results_dir.glob("nsg_qepo_single_ep_*.json"))
+        json_files = sorted(self.results_dir.glob("nsg_qleaf_single_ep_*.json"))
 
         if not json_files:
             print_warning("JSON result files not found")
@@ -532,7 +532,7 @@ class NSGQEPOBenchmark:
 
 def main():
     parser = argparse.ArgumentParser(
-        description="NSG QEPO Single Entry Point Benchmark Execution Script (Global Pool + Mapping)",
+        description="NSG Q-LEAF Single Entry Point Benchmark Execution Script (Global Pool + Mapping)",
         formatter_class=argparse.RawDescriptionHelpFormatter
     )
 
@@ -589,7 +589,7 @@ def main():
 
     # Run benchmark
     dataset_full_name = f"{args.dataset.upper()}_label{args.num_labels}"
-    print_header(f"NSG QEPO Single Entry Point Benchmark ({dataset_full_name})")
+    print_header(f"NSG Q-LEAF Single Entry Point Benchmark ({dataset_full_name})")
     print("")
     print_info(f"Architecture: {Colors.CYAN}Global Pool + Mapping{Colors.NC}")
     print_info(f"Dataset: {Colors.CYAN}{dataset_full_name}{Colors.NC}")
@@ -597,7 +597,7 @@ def main():
     print_info(f"Graph config: {Colors.CYAN}{args.graph_config}{Colors.NC}")
     print("")
 
-    benchmark = NSGQEPOBenchmark(
+    benchmark = NSGQLEAFBenchmark(
         dataset=args.dataset,
         num_labels=args.num_labels,
         graph_config=args.graph_config,

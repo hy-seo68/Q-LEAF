@@ -3,8 +3,8 @@
  * @brief NSG Baseline Benchmark (Global Pool + Mapping Architecture)
  */
 
-#include "nsg_qepo_data_loader.h"
-#include "nsg_qepo_utils.h"
+#include "nsg_qleaf_data_loader.h"
+#include "nsg_qleaf_utils.h"
 #include "aligned_allocator.h"
 #include <iostream>
 #include <fstream>

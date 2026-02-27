@@ -1,5 +1,5 @@
-#ifndef NSG_QEPO_DATA_LOADER_H
-#define NSG_QEPO_DATA_LOADER_H
+#ifndef NSG_QLEAF_DATA_LOADER_H
+#define NSG_QLEAF_DATA_LOADER_H
 
 #include "aligned_allocator.h"
 #include <vector>
@@ -166,4 +166,4 @@ void save_label_indices(const char* filename, const std::vector<uint32_t>& indic
  */
 std::vector<uint32_t> load_label_indices(const char* filename);
 
-#endif // NSG_QEPO_DATA_LOADER_H
+#endif // NSG_QLEAF_DATA_LOADER_H

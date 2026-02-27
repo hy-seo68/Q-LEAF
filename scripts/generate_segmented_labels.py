@@ -2,10 +2,10 @@
 """
 Multi-Dataset Segmented Selectivity Labeling Script
 Usage:
-    python generate_segmented_labels_all.py --dataset sift10m
-    python generate_segmented_labels_all.py --dataset deep10m
-    python generate_segmented_labels_all.py --dataset text2image10m
-    python generate_segmented_labels_all.py --dataset yfcc10m
+    python generate_segmented_labels.py --dataset sift10m
+    python generate_segmented_labels.py --dataset deep10m
+    python generate_segmented_labels.py --dataset text2image10m
+    python generate_segmented_labels.py --dataset yfcc10m
 """
 
 import numpy as np

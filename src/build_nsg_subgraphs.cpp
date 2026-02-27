@@ -54,8 +54,8 @@ namespace efanna2e {
 // Step 3: nsg library header (for NSG graph building - IndexNSG)
 #include <efanna2e/index_nsg.h>
 
-// Step 4: QEPO data loader (for Global Pool + Mapping architecture - MmapVectorReader, file I/O functions)
-#include "nsg_qepo_data_loader.h"
+// Step 4: Q-LEAF data loader (for Global Pool + Mapping architecture - MmapVectorReader, file I/O functions)
+#include "nsg_qleaf_data_loader.h"
 
 /**
  * @brief Configuration parameters structure

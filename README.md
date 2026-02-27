@@ -89,7 +89,7 @@ make -j$(nproc)
 
 Download datasets (see [Datasets](#datasets) section) and generate labels:
 ```bash
-python scripts/generate_segmented_labels_all.py --dataset sift10m
+python scripts/generate_segmented_labels.py --dataset sift10m
 ```
 
 Place data in the following structure:
@@ -108,7 +108,7 @@ data/
 Build label-specific NSG subgraphs:
 ```bash
 # Using Python wrapper (recommended)
-python scripts/build_multi_dataset_subgraphs.py --dataset sift10m --task build
+python scripts/build_and_generate_eps.py --dataset sift10m --task build
 
 # Or direct execution
 ./build/bin/build_nsg_subgraphs \
@@ -140,7 +140,7 @@ python scripts/build_and_generate_eps.py --dataset sift10m --num-eps 32
 #### Q-LEAF
 ```bash
 # Using Python wrapper (recommended)
-python scripts/run_nsg_qepo_single_ep_benchmark.py \
+python scripts/run_qLeaf_benchmark.py \
     --dataset sift10m \
     --num-labels 100 \
     --graph-config K40_L50_iter8_S10_R100_NSG_L30_R32_C100 \
@@ -149,7 +149,7 @@ python scripts/run_nsg_qepo_single_ep_benchmark.py \
     --search-l 10,30,50,70,90
 
 # Or direct execution
-./build/bin/nsg_qepo_single_ep \
+./build/bin/nsg_qleaf_single_ep \
     data/sift10m/sift10m_base.fvecs \
     NSG_subgraph_output/sift10m/K40_L50_iter8_S10_R100_NSG_L30_R32_C100/config.csv \
     data/sift10m/sift10m_query.fvecs \
