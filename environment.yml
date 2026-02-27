@@ -1,0 +1,23 @@
+# environment.yml
+name: qleaf
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.8
+  - cmake>=3.10
+  - gcc_linux-64>=9
+  - gxx_linux-64>=9
+  - make
+  - libopenblas
+  - libgfortran5
+  - boost-cpp
+  - numpy=1.24
+  - scipy=1.10
+  - pyyaml
+  - matplotlib
+  - h5py
+  - pip:
+    - scikit-learn==1.3.2
+    - scikit-dimension==0.3.4
+    - numba==0.58.1
