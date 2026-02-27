@@ -1,0 +1,43 @@
+# config/yfcc10m.yaml
+dataset:
+  name: yfcc10m
+  base_file: data/yfcc10m/yfcc10m_base.fvecs
+  query_file: data/yfcc10m/yfcc10m_query.fvecs
+  groundtruth_file: data/yfcc10m/groundtruth.ivecs
+  dimension: 192
+  base_vectors: 10000000
+  queries: 100000
+
+labels:
+  - num_labels: 12
+    label_file: data/yfcc10m/labels_12.txt
+    query_label_file: data/yfcc10m/query_labels_12.txt
+    subgraph_build:
+      K: 150
+      L: 150
+      iter: 10
+      S: 10
+      R: 100
+      L_nsg: 40
+      R_nsg: 50
+      C_nsg: 300
+    entry_points:
+      num_clusters: 64
+
+  - num_labels: 100
+    label_file: data/yfcc10m/labels_100.txt
+    query_label_file: data/yfcc10m/query_labels_100.txt
+    subgraph_build:
+      K: 40
+      L: 50
+      iter: 8
+      S: 10
+      R: 100
+      L_nsg: 30
+      R_nsg: 32
+      C_nsg: 100
+    entry_points:
+      num_clusters: 32
+
+search:
+  k: 10
