@@ -1,0 +1,93 @@
+# ============================================
+# Q-LEAF .gitignore
+# ============================================
+
+# Build outputs
+build/
+cmake-build-*/
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile
+*.o
+*.a
+*.so
+*.dylib
+
+# Executables (keep in build/bin/)
+bin/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyo
+.Python
+*.egg-info/
+.eggs/
+*.egg
+.pytest_cache/
+.mypy_cache/
+
+# Virtual environments
+venv/
+env/
+.env
+
+# Generated outputs
+NSG_subgraph_output/
+results/*
+!results/.gitkeep
+
+# Large data files (download separately)
+data/*
+!data/.gitkeep
+*.fvecs
+*.ivecs
+*.bvecs
+*.bin
+*.hdf5
+*.h5
+
+# IDE and editors
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.project
+.cproject
+.settings/
+*.sublime-*
+
+# OS files
+.DS_Store
+.DS_Store?
+._*
+Thumbs.db
+
+# Logs and temporary files
+*.log
+*.tmp
+*.temp
+*.bak
+core
+core.*
+
+# Config files with local paths (if any)
+config/local_*.yaml
+config/*.local.yaml
+
+# Third-party libraries (build separately)
+third_party/
+
+# Documentation build
+docs/_build/
+docs/html/
+
+# Profiling and debugging
+*.prof
+*.out
+callgrind.*
+cachegrind.*
+perf.data*
