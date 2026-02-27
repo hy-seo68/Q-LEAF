@@ -119,6 +119,7 @@ python scripts/build_and_generate_eps.py --dataset sift10m --task build
     40 50 8 10 100 \
     30 32 100
 ```
+> Dataset-specific parameters (subgraph build, entry point) are defined in `config/*.yaml`.
 
 ### Step 3: Compute Entry Points
 
